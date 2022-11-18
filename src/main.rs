@@ -12,9 +12,14 @@ use cortex_m_rt::entry;
 
 #[entry]
 fn main() -> ! {
+	let aa :u8 = 40;
     asm::nop(); // To not have main optimize to abort in release mode, remove when you add code
 
+	let mut _bb = aa;
     loop {
+	//assert_eq!(200u8.wrapping_add(55), 255);
+	_bb = _bb.wrapping_add(aa);
+	asm::nop();
         // your code goes here
     }
 }
